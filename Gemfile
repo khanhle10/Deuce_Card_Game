@@ -5,7 +5,7 @@ ruby '2.2.3'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
 group :production do
- gem 'pg'
+ gem 'pg', '0.18.3'
  gem 'rails_12factor'
  gem 'puma'
 end
@@ -16,7 +16,8 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'execjs'
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
