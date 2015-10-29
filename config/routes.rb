@@ -12,6 +12,27 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
+  # Devise authentication routing
+  #login
+  devise_scope :user do
+    get "/login" => "devise/session#new"
+  end
+
+  #logout
+  devise_scope :user do
+    delete "/logout" => "devise/session#destroy"
+  end
+
+=begin
+  #skipping default routing for devise (as is alias of devise_scope)
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+=end
+  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
