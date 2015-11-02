@@ -1,6 +1,97 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+  .placeHolder {
+    margin:auto;
+    position:relative;
+    border-radius: 25px;
+    background-color: #000028;
+    padding: 20px;
+    width: 750px;
+    height: 550px;
+  }
+  .center{
+    margin:auto;
+  }
+  .wrapper {
+    text-align: center;
+  }
+  .button {
+    position: absolute;
+    top: 50%;
+   }
+
+
+.panel-heading
+{
+    background-color: #FAFAFA;
+
+}
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #FAFAFA;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #FAFAFA;
+
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    height:100px;
+
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color:#FAFAFA;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #FAFAFA;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #FAFAFA;
+}
+  </style>
   <title>Deuces</title>
 
   <script>
@@ -15,8 +106,6 @@
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-
-
 
 </head>
 <body>
@@ -39,12 +128,42 @@
 <div class = "container">
   <hr>
   <div class="row">
-    <div class = "col-md-6" style = "text-align: center">
-      <button type = "button">Join A Game</button>
+    <div class="placeHolder">
+      <h1 style="text-align:center; font-size:60px;">Title Here</h1>
+      <div style="position:relative; top:100px;"class="wrapper"style = "text-align: center">
+        <button  type = "button">Join A Game</button>
+      </div>
+      <div style="position:relative; top:100px;" class="wrapper" style = "text-align: center">
+        <button  type = "button">Start A Game</button>
+      </div>
+
+      <div style="height:250px;width:100%;bottom:0;top:170px;position:relative;"class="container">
+          <div class="row">
+              <div class="col-md-5">
+                  <div class="panel panel-primary">
+                      <div class="panel-heading" id="accordion">
+                          <span class="glyphicon glyphicon-comment"></span> Chat
+
+                      </div>
+                      <div class="panel-body">
+
+                      </div>
+                      <div class="panel-footer">
+                          <div class="input-group">
+                              <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                              <span class="input-group-btn">
+                                  <button class="btn btn-warning btn-sm" id="btn-chat">
+                                      Send</button>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
     </div>
-    <div class = "col-md-7" style = "text-align: center">
-      <button type = "button">Start A Game</button>
-    </div>
+
   </div>
 </div>
 
