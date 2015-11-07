@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   #root 'welcome#index'
-  root 'welcome#login'
+  #root 'welcome#login'
+  root 'welcome#home'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   #logout
   devise_scope :user do
-    delete "/logout" => "devise/session#destroy"
+    delete "/login" => "devise/session#destroy"
   end
 
 =begin
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
     delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 =end
-  
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
