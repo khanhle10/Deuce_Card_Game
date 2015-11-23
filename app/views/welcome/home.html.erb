@@ -37,7 +37,6 @@
 .panel-heading
 {
   background-color: #FAFAFA;
-
 }
 .chat
 {
@@ -123,6 +122,8 @@
   <!-- Pusher test -->
   <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="pusher-realtime-chat-widget/src/js/PusherChatWidget.js"></script>
+  <link href="pusher-realtime-chat-widget/src/pusher-chat.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -150,15 +151,12 @@
   <div class="row">
     <div class="placeHolder">
       <h1 style="text-align:center; font-size:60px; color:#FF00FF">Deuces Man</h1>
-      <div style="position:relative; top:100px;"class="wrapper"style = "text-align: center;">
-        <button  type = "button" class="brn btn-primary btn-lg ">Join A Game</button>
-      </div>
       <div style="position:relative; top:100px;" class="wrapper" style = "text-align: center;">
           <button  type = "button" class="brn1 btn-primary btn-lg">Start A Game</button>
       </div>
 
 <!--Chatbox-->
-      <div style="height:250px;width:104%;right:16px;top:360px;position:relative;"class="container">
+      <div style="height:100px;width:104%;left:-16px;top:400px;position:relative;"class="container">
           <div class="row">
               <div class="col-md-5">
                   <div class="panel panel-primary">
@@ -169,12 +167,14 @@
                       <div class="panel-body">
                         <script src="app/assets/JavaScript/PusherChat.js"></script>
                         <script>
+                          
                           $(function() {
-                          var pusher = new Pusher('YOUR_APP_KEY');
-                          var chatWidget = new PusherChatWidget(pusher, {
-                            chatEndPoint: 'src/chat.rb'
-                          });
-                        });
+                            var pusher = new Pusher('YOUR_APP_KEY');
+                            var chatWidget = new PusherChatWidget(pusher, {
+                              chatEndPoint: 'src/chat.rb'
+                            });
+                           });
+
                         </script>
                       </div>
                       <div class="panel-footer">
