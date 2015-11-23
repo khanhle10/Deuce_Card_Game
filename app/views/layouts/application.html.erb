@@ -6,27 +6,16 @@
   <%= stylesheet_link_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' %>
-
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
+  <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-  <div class="container">
-    <ul class="nav navbar-nav">
-      <li class="active">
-        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
-      </li>
-
-
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="navbar-right">
-	<li><a href="login.html.erb">Login/Register</a></li>
-      </li>
-    </ul>
-  </div>
-</nav>
-
+<% render 'layouts/nav.html' %>
+<div class="container">
+  <audio id="chatAudio"><source src="/sound.notification.mp3" type="audio/mpeg"><audio>
+  <%= yield %>
+</div>
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
