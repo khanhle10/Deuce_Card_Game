@@ -98,6 +98,7 @@
   <script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    ''
   <%= csrf_meta_tags %>
   </script>
   <link rel="stylesheet" href="./stylesheets/chat.css" type="text/css">
@@ -112,6 +113,15 @@
   <!-- Pusher test -->
   <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="./assets/JavaScript/PusherChatWidget.js"></script>
+  <script>
+    $(function() {
+    var pusher = new Pusher('YOUR_APP_KEY');
+    var chatWidget = new PusherChatWidget(pusher, {
+      chatEndPoint: './src/chat.rb'
+    });
+  });
+  </script>
 </head>
 
 <body>
@@ -153,15 +163,6 @@
 
                       </div>
                       <div class="panel-body">
-                        <script src="app/assets/JavaScript/PusherChat.js"></script>
-                        <script>
-                          $(function() {
-                          var pusher = new Pusher('YOUR_APP_KEY');
-                          var chatWidget = new PusherChatWidget(pusher, {
-                            chatEndPoint: 'src/chat.rb'
-                          });
-                        });
-                        </script>
                       </div>
                       <div class="panel-footer">
                           <div class="input-group">
