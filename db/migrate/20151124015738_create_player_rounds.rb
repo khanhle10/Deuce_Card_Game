@@ -3,7 +3,8 @@ class CreatePlayerRounds < ActiveRecord::Migration
     create_table :player_rounds do |t|
       t.integer :player_id
       t.integer :round_id
-      
+      t.integer :round_winners
+
       t.timestamps null: false
     end
   end
