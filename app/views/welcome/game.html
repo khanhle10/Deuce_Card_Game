@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en=US">
+<head>
+  <meta charset="UTF-8">
+  <title>Desces</title>
+  <script>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  </script>
+  <link rel="stylesheet" href="assets/stylesheets/chat.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  <!-- Pusher test -->
+  <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+</head>
+<body>
+  <div style="height:250px;width:100%;bottom:0;top:170px;position:relative;"class="container">
+      <div class="row">
+          <div class="col-md-5">
+              <div class="panel panel-primary">
+                  <div class="panel-heading" id="accordion">
+                      <span class="glyphicon glyphicon-comment"></span> Chat
+
+                  </div>
+                  <div class="panel-body">
+                    <script src="/assets/javascripts/pusherchat.js"></script>
+                    <script>
+                    Pusher.log = function(message) {
+        if (window.console && window.console.log) {
+          window.console.log(message);
+        }
+      };
+
+      var pusher = new Pusher('f186c8947d4b1acc8fdf', {
+        encrypted: true
+      });
+      var channel = pusher.subscribe('test_channel');
+      channel.bind('my_event', function(data) {
+        alert(data.message);
+      });
+                    </script>
+                  </div>
+                  <div class="panel-footer">
+                      <div class="input-group">
+                          <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                          <span class="input-group-btn">
+                              <button class="btn btn-warning btn-sm" id="btn-chat">
+                                  Send</button>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+</body>

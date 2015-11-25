@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'games/game'
-  resources :games
-
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,22 +9,16 @@ Rails.application.routes.draw do
 
   #root 'welcome#index'
   #root 'welcome#login'
-  authenticated :user do
-    root 'users#index'
-  end
-  unauthenticated :user do
-    devise_scope :user do
-      get "/" => "devise/session#new"
-    end
-  end
+  root 'welcome#game'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Devise authentication routing
   #login
-  resources :conversations do
-    resources :messages
- end
+  devise_scope :user do
+    get "/login" => "devise/session#new"
+  end
+
   #logout
   devise_scope :user do
     delete "/login" => "devise/session#destroy"

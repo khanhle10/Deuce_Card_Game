@@ -5,8 +5,8 @@ class CreateRounds < ActiveRecord::Migration
       t.integer :dealer_id
       t.integer :position, :default => 0
       t.boolean :hearts_broken, :default => false
-      t.boolean :cards_have_been_passed, :default =>
-
+      t.boolean :cards_have_been_passed, :default => false
+      
       t.timestamps null: false
     end
   end
