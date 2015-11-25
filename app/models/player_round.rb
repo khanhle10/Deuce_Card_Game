@@ -9,6 +9,6 @@ class PlayerRound < ActiveRecord::Base
   validates_presence_of :round_id
   validates_presence_of :round_winners
 
-  delegate ::to => :round
-  
+  delegate :to => :round
+
 end

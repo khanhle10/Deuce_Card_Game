@@ -1,5 +1,6 @@
 class Round < ActiveRecord::Base
   attr_accessible :game_id, :dealer_id, :position, :cards_have_been_passed
+
   PASS_CARDS_SHIFT = {:seat_0 = 0,:seat_1 = 1, :seat_2 = 2, :seat_3 = 3}
   after_create :create_player_rounds
   after_create :overide_card_passing_on_none_round
