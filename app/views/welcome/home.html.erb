@@ -2,14 +2,24 @@
 <html>
 <head>
 <style>
+
+.brn{
+    margin:  20px;
+}
+
 .placeHolder {
   margin:auto;
   position:relative;
   border-radius: 25px;
-  background-color: #000028;
-  padding: 20px;
-  width: 750px;
-  height: 550px;
+  background: url('http://i.imgur.com/PKO4t3b.png');
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-repeat: no-repeat;
+  background-size:800px;;
+  height: 800px;
+  width:  800px;
 }
 .center{
   margin:auto;
@@ -21,6 +31,7 @@
   position: absolute;
   top: 50%;
  }
+>>>>>>> ef771d4bc3979e638a2a24433b5a7b2f09c221e9
 
 
 .panel-heading
@@ -100,7 +111,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   </script>
-  <link rel="stylesheet" href="./stylesheets/chat.css" type="text/css">
+  <link rel="stylesheet" href="./layouts/stylesheets/chat.css" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
   <!-- Optional theme -->
@@ -115,6 +126,7 @@
 </head>
 
 <body>
+<!--Navbar-->
 
   <nav class="navbar navbar-default navbar-static-top navbar-inverse">
     <div class="container">
@@ -132,19 +144,21 @@
     </div>
   </nav>
 
+<!--Button-->
 <div class = "container">
   <hr>
   <div class="row">
     <div class="placeHolder">
-      <h1 style="text-align:center; font-size:60px;">Title Here</h1>
-      <div style="position:relative; top:100px;"class="wrapper"style = "text-align: center">
-        <button  type = "button">Join A Game</button>
+      <h1 style="text-align:center; font-size:60px; color:#FF00FF">Deuces Man</h1>
+      <div style="position:relative; top:100px;"class="wrapper"style = "text-align: center;">
+        <button  type = "button" class="brn btn-primary btn-lg ">Join A Game</button>
       </div>
-      <div style="position:relative; top:100px;" class="wrapper" style = "text-align: center">
-        <button  type = "button">Start A Game</button>
+      <div style="position:relative; top:100px;" class="wrapper" style = "text-align: center;">
+          <button  type = "button" class="brn1 btn-primary btn-lg">Start A Game</button>
       </div>
 
-      <div style="height:250px;width:100%;bottom:0;top:170px;position:relative;"class="container">
+<!--Chatbox-->
+      <div style="height:250px;width:104%;right:16px;top:360px;position:relative;"class="container">
           <div class="row">
               <div class="col-md-5">
                   <div class="panel panel-primary">
