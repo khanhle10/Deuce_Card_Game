@@ -36,7 +36,7 @@ class Round < ActiveRecord::Base
 
   def pass_cards(direction = pass_direction)
     self.update_attributes(:cards_have_been_passed => true)
-    return if direction ==  :none
+    return if direction ==  :seat_3
     given_shift = PASS_CARDS_SHIFT[direction]
     card_passing_sets.each do |set|
       set.player_cards.each do |player_cards|
