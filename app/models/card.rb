@@ -4,7 +4,7 @@ class Card < ActiveRecord::Base
 
   attr_accessible :suit, :value
 
-  has_many :player_cards, :dependent => :destory
+  has_many :player_cards, :dependent => :destroy
 
   validates_presence_of :suit
   validates_presence_of :value
@@ -20,4 +20,21 @@ class Card < ActiveRecord::Base
   def suit_weight
     SUIT_WEIGHT[suit]
   end
+
+  def is_a_heart
+    suit == "heart"
+  end
+
+  def is_a_spade
+    suit = "spade"
+  end
+
+  def is_a_club
+    suit = "club"
+  end
+
+  def is_a_diamond
+    suit = "diamond"
+  end
+
 end

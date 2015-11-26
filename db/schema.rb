@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124015738) do
+ActiveRecord::Schema.define(version: 20151125183326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "card_passing_sets", force: :cascade do |t|
+    t.integer  "player_round_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "cards", force: :cascade do |t|
     t.string   "suit"
@@ -38,6 +44,15 @@ ActiveRecord::Schema.define(version: 20151124015738) do
 
   add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id", using: :btree
   add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
+
+  create_table "game_rules", force: :cascade do |t|
+    t.integer  "round_id"
+    t.integer  "winner_id"
+    t.integer  "position"
+    t.string   "winner_suit"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "games", force: :cascade do |t|
     t.string   "name",       null: false
