@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+
+  def after_sign_out_path(resource_or_scope)
+    root_path
+  end
+
   def current_player
     current_user.try(:current_player_in_game, current_game)
   end
@@ -27,4 +32,3 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-end
