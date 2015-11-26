@@ -2,19 +2,24 @@
 <html>
 <head>
   <style>
+/*Goes into Chat.css*/
   .brn{
     margin:  20px;
   }
 
   .placeHolder {
-    margin:auto;
-    position:relative;
-    border-radius: 25px;
-    background-color: #000028;
-    padding: 20px;
-    width: 750px;
-    height: 650px;
-  }
+  margin:auto;
+  position:relative;
+  border-radius: 25px;
+  background: url('http://i.imgur.com/mSseDrs.jpg');
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-repeat: repeat;
+  height: 800px;
+  width:  800px;
+}
   .center{
     margin:auto;
   }
@@ -95,6 +100,33 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #FAFAFA;
 }
+
+/*Goes into PlayersPlacement.css once I can figure it out*/
+
+#player1{
+    padding-left:  365px;
+}
+
+#player0{
+    padding-left: 365px;
+    padding-top: 70px;
+}
+
+.col-md-6{
+    padding-top: 10px;
+}
+
+.textBox{
+    font-size: 20px;
+}
+
+#player2{
+    padding-left: 70px;
+}
+
+#player3{
+    padding-left: 330px;
+}
   </style>
   <title>Deuces</title>
 
@@ -135,11 +167,61 @@
   <hr>
   <div class="row">
     <div class="placeHolder">
-      <h1 style="text-align:center; font-size:60px; color:#FF00FF">Deuces Man</h1>
+      <h1 style="text-align:center; font-size:30px; color:#FF00FF; padding-top: 10px;">Deuces Man</h1>
       
 
+<!--Additional players -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id='player1' class='playingfield'>
+                            <div class='textBox name' style="color: #fff;">Player</div>
+                            <div id='player1Score' class='textBox'>&nbsp;</div>
+                            <div id='player1Bet' class='textBox'>&nbsp;</div>
+                            <div id='player1Result' class='textBox'>&nbsp;</div>
+                            <div id='player1Cards' class='cardArea'></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id='player2' class='playingfield'>
+                            <div class='textBox name' style="color: #fff;">Player</div>
+                            <div id='player2Score' class='textBox'>&nbsp;</div>
+                            <div id='player2Bet' class='textBox'>&nbsp;</div>
+                            <div id='player2Result' class='textBox'>&nbsp;</div>
+                            <div id='player2Cards' class='cardArea'></div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div id='player3' class='playingfield'>
+                            <div class='textBox name' style="color: #fff;">Player</div>
+                            <div id='player3Score' class='textBox'>&nbsp;</div>
+                            <div id='player3Bet' class='textBox'>&nbsp;</div>
+                            <div id='player3Result' class='textBox'>&nbsp;</div>
+                            <div id='player3Cards' class='cardArea'></div>
+                        </div>
+                    </div>
+                </div>
+                <!--Additional Player's-->
+
+                <!--Main player's area-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id='player0' class='playingfield'>
+                            <div class='textBox name' style="color: #fff;">Player</div>
+                            <div id='player0Score' class='textBox'>&nbsp;</div>
+                            <div id='player0Bet' class='textBox'>&nbsp;</div>
+                            <div id='player0Result' class='textBox'>&nbsp;</div>
+                            <div id='player0Cards' class='cardArea'></div>
+                        </div>
+                    </div>
+                </div>
+                <!--Main Player's Area-->
+
 <!--Chatbox-->
-      <div style="height:250px;width:100%;bottom:0;top:170px;position:relative;"class="container">
+      <div style="height:100px;width:104%;left:-16px;top:180px;position:relative;"class="container">
           <div class="row">
               <div class="col-md-5">
                   <div class="panel panel-primary">
