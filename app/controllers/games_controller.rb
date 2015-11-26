@@ -1,15 +1,16 @@
 class GamesController < ApplicationController
   before_filter :store_location, :only => [:index, :show]
   before_filter :require_user, :only => :show
-  before_filter :assign_game, :only => [:show, :destory]
+  before_filter :assign_game, :only => [:show, :destroy]
 
-  def game
+  def index
     @game = Game.all
   end
 
   def new
     @game = Game.new
   end
+
   def show
     api_key = ""
     api_secret = ""
@@ -47,7 +48,7 @@ class GamesController < ApplicationController
       render action: 'new'
     end
   end
-  
+
   def destory
     @game.destory
     redirect_to games_url
