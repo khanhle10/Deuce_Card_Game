@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 20151125183326) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cards_playeds", force: :cascade do |t|
+  create_table "cards_played", force: :cascade do |t|
     t.integer  "player_card_id"
+    t.integer  "player_id"
+    t.integer  "position"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -72,7 +74,7 @@ ActiveRecord::Schema.define(version: 20151125183326) do
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "player_cards", force: :cascade do |t|
-    t.integer  "player_cards"
+    t.integer  "player_id"
     t.integer  "card_id"
     t.integer  "card_passing_set_id"
     t.datetime "created_at",          null: false
@@ -82,24 +84,24 @@ ActiveRecord::Schema.define(version: 20151125183326) do
   create_table "player_rounds", force: :cascade do |t|
     t.integer  "player_id"
     t.integer  "round_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "round_winners"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "players", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "game_id"
     t.integer  "seat"
-    t.integer  "total_score", default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "position",   default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "rounds", force: :cascade do |t|
     t.integer  "game_id"
     t.integer  "dealer_id"
     t.integer  "position",               default: 0
-    t.boolean  "hearts_broken",          default: false
     t.boolean  "cards_have_been_passed", default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
