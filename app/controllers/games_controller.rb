@@ -5,13 +5,13 @@ class GamesController < ApplicationController
   before_filter :assign_game, :only => [:show, :destroy]
 
   def index
-    @game = Game.all
+    @game = Game.new
   end
 
   def new
     @game = Game.new
   end
-
+  
   def show
 
     #api_key = ""
