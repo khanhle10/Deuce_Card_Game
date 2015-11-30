@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
+  before_filter :authenticate_user!
+
+def index
+    @users = User.where.not("id = ?",current_user.id).order("created_at DESC")
+    @conversations = Conversation.involving(current_user).order("created_at DESC")
+end
 
   def show
     @users = User.find(params[:id])

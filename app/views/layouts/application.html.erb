@@ -18,20 +18,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-    <div class="container">
-      <ul class="nav navbar-nav">
-        <li class="active">
-          <a href="/welcome/index"><span class="glyphicon glyphicon-home"></span>  Deuces </a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-right">
-  <li><a href="/users/sign_in">Login/Register</a></li>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<%= render 'layouts/nav' %>
 <div class="container">
   <audio id="chatAudio"><source src="/sound.notification.mp3" type="audio/mpeg"><audio>
   <%= yield %>

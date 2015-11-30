@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   as :user do
     get 'signin' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
+    get 'signup' => 'devise/registrations#new'
     post 'Forgot your password?' => 'devise/password#new'
     delete 'signout' => 'devise/sessions#destroy'
+
   end
 
   # You can have the root of your site routed with "root"
