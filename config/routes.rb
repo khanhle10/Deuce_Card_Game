@@ -7,15 +7,17 @@ Rails.application.routes.draw do
   as :user do
     get 'signin' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
+    post 'Forgot your password?' => 'devise/password#new'
     delete 'signout' => 'devise/sessions#destroy'
   end
 
   # You can have the root of your site routed with "root"
 
-  #root 'welcome#index'
-  root 'welcome#login'
+  root 'welcome#index'
+  get 'welcome/index' => 'welcome#index'
+  #root 'welcome#login'
   #direct to main page.
-  get 'welcome/lobby' => 'welcome#lobby'
+  #get 'welcome/lobby' => 'welcome#lobby'
   #root 'welcome#lobby'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

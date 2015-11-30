@@ -1,163 +1,131 @@
-<div class="jumbotron text-center">
-  <div class="container">
-  </div>
-</div>
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
 
-  <hr>
-  <div class="row">
+<head>
 
-    <div class="col-md-6">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Business Frontpage - Start Bootstrap Template</title>
 
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <h1>Deuces</h1>
-    <p>Welcome to a game of deuces!</p>
+    <!-- Custom CSS -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    <div class="container">
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-info" >
-                    <div class="panel-heading">
-                        <div class="panel-title">Sign In</div>
-                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
-                    </div>
+</head>
 
-                    <div style="padding-top:30px" class="panel-body" >
+<body>
 
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-
-                        <form id="loginform" class="form-horizontal" role="form">
-
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
-                                    </div>
-
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                                    </div>
-
-
-
-                            <div class="input-group">
-                                      <div class="checkbox">
-                                        <label>
-                                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                                        </label>
-                                      </div>
-                                    </div>
-
-
-                                <div style="margin-top:10px" class="form-group">
-                                    <!-- Button -->
-
-                                    <div class="col-sm-12 controls">
-                                      <a id="btn-login" href="#" class="btn btn-success">Login  </a>
-
-
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <div class="col-md-12 control">
-                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                            Don't have an account!
-                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
-                                            Sign Up Here
-                                        </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-
-
-
-                        </div>
-                    </div>
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">Welcome to an online card game called Deuces</h1>
+                </div>
+            </div>
         </div>
-        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <div class="panel-title">Sign Up</div>
-                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
-                        </div>
-                        <div class="panel-body" >
-                            <form id="signupform" class="form-horizontal" role="form">
+    </header>
 
-                                <div id="signupalert" style="display:none" class="alert alert-danger">
-                                    <p>Error:</p>
-                                    <span></span>
-                                </div>
+    <!-- Page Content -->
+    <div class="container">
+        <hr>
 
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>How to play</h2>
+                <p>Introduce the visitor to the business using clear, informative text. Use well-targeted keywords within your sentences to make sure search engines can find the business.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et molestiae similique eligendi reiciendis sunt distinctio odit? Quia, neque, ipsa, adipisci quisquam ullam deserunt accusantium illo iste exercitationem nemo voluptates asperiores.</p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="#">Start New Game As Guest &raquo;</a>
+                </p>
+            </div>
+        </div>
+        <!-- /.row -->
 
-                                  
-                                <div class="form-group">
-                                    <label for="email" class="col-md-3 control-label">Email</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
-                                    </div>
-                                </div>
+        <hr>
 
-                                <div class="form-group">
-                                    <label for="firstname" class="col-md-3 control-label">First Name</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastname" class="col-md-3 control-label">Last Name</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="col-md-3 control-label">Password</label>
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" name="passwd" placeholder="Password">
-                                    </div>
-                                </div>
+        <div class="row1">
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+                <h2>Marketing Box #1</h2>
+                <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+                <h2>Marketing Box #2</h2>
+                <p>The images are set to be circular and responsive. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+                <h2>Marketing Box #3</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row2">
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+                <h2>Marketing Box #1</h2>
+                <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+                <h2>Marketing Box #2</h2>
+                <p>The images are set to be circular and responsive. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+                <h2>Marketing Box #3</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+            </div>
+        </div>
+        <hr>
 
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2>Contact Us</h2>
+                    <address>
+                        <strong>SFSU Computer Sciecne Department</strong>
+                        <br>1600 Holloway Ave, San Francisco
+                        <br>San Francisco, CA 94132
+                        <br>
+                    </address>
+                    <address>
+                        <abbr title="Phone">P:</abbr>(123) 456-7890
+                        <br>
+                        <abbr title="Email">E:</abbr> <a href="mailto:#">name@example.com</a>
+                    </address>
+                      <p>Copyright &copy; SFSU Web-Application</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
 
-
-                                <div class="form-group">
-                                    <!-- Button -->
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
-
-                                    </div>
-                                </div>
-
-                                <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
-
-
-
-                                </div>
-
-
-
-                            </form>
-                         </div>
-                    </div>
-
-
-
-
-         </div>
     </div>
+    <!-- /.container -->
 
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
+</body>
 
-
-
-
-
-
-
-  </div>
-</div>
-
-</div>
+</html>
