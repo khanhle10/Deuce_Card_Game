@@ -1,7 +1,10 @@
 <h1>Games#game</h1>
-<%= form_for @game do |f| %>
+<%= form_for(@game) do |f| %>
+  <div class="game-field">
   <%= f.label :name %>
   <%= f.text_field :name %>
-
-  <%= submit_tag %>
+</div>
+ <div class="actions">
+  <%= submit_tag "Game Created", :class=> "btn" %>
+</div>
 <% end %>

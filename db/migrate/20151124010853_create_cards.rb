@@ -3,6 +3,7 @@ class CreateCards < ActiveRecord::Migration
     create_table :cards do |t|
       t.string :suit
       t.string :value
+
       t.timestamps null: false
     end
   end

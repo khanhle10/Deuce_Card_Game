@@ -1,37 +1,42 @@
 Rails.application.routes.draw do
 
 
-  get 'games/game'
-  resources :games
-
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  as :user do
+    get 'signin' => 'devise/sessions#new'
+    post 'signin' => 'devise/sessions#create'
+    post 'Forgot your password?' => 'devise/password#new'
+    delete 'signout' => 'devise/sessions#destroy'
+  end
 
   # You can have the root of your site routed with "root"
 
-  #root 'welcome#index'
+  root 'welcome#index'
+  get 'welcome/index' => 'welcome#index'
   #root 'welcome#login'
-  authenticated :user do
-    root 'users#index'
-  end
-  unauthenticated :user do
-    devise_scope :user do
-      get "/" => "devise/session#new"
-    end
-  end
+  #direct to main page.
+  #get 'welcome/lobby' => 'welcome#lobby'
+  #root 'welcome#lobby'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+  resources :games do
+    post "reload" => "reloads#reload_all"
+    post "reload_game_rules" => "reloads#reload_game_rules"
+    post "fill_table" => "fill#fill_table"
+    post "new_round" => "round#create"
+    post "new_game_rule" => "game_rules#create"
+    post "play_cards" => "cards_played#create"
+    post "pass_cards" => "cards_to_pass#create"
+    post "toggle_passing_status" => "cards_to_pass#toggle"
+    post "passing_set_ready" => "cards_to_pass#passing_set_ready"
+  end
   # Devise authentication routing
   #login
-  resources :conversations do
-    resources :messages
- end
-  #logout
-  devise_scope :user do
-    delete "/login" => "devise/session#destroy"
-  end
+
+
+
 
 =begin
   #skipping default routing for devise (as is alias of devise_scope)

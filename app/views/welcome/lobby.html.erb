@@ -145,22 +145,6 @@
 
 </head>
 <body>
-<!--NavBar-->
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-  <div class="container">
-    <ul class="nav navbar-nav">
-      <li class="active">
-        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
-      </li>
-
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="navbar-right">
-	<li><a href="login.html.erb">Login/Register</a></li>
-      </li>
-    </ul>
-  </div>
-</nav>
 
 <!--Game board-->
 <div class = "container">
@@ -168,13 +152,13 @@
   <div class="row">
     <div class="placeHolder">
       <h1 style="text-align:center; font-size:30px; color:#FFF; padding-top: 10px;">Deuces</h1>
-      
+
 
 <!--Additional players -->
                 <div class="row">
                     <div class="col-md-12">
                         <div id='player1' class='playingfield'>
-                            <div class='textBox name' style="color: #fff;">Player</div>
+                            <div class='textBox name' style="color: #fff;">Player1</div>
                             <div id='player1Score' class='textBox'>&nbsp;</div>
                             <div id='player1Bet' class='textBox'>&nbsp;</div>
                             <div id='player1Result' class='textBox'>&nbsp;</div>
@@ -184,9 +168,9 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div id='player2' class='playingfield'>
-                            <div class='textBox name' style="color: #fff;">Player</div>
+                            <div class='textBox name' style="color: #fff;">Player2</div>
                             <div id='player2Score' class='textBox'>&nbsp;</div>
                             <div id='player2Bet' class='textBox'>&nbsp;</div>
                             <div id='player2Result' class='textBox'>&nbsp;</div>
@@ -194,9 +178,15 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+		<div class="col-md-4">
+		   <div id='Waiting' class='playingfield'>
+ 			<div class='textBox name' style="color: #fff;">Waiting for players</div>
+		   </div>
+		</div>
+
+                    <div class="col-md-4">
                         <div id='player3' class='playingfield'>
-                            <div class='textBox name' style="color: #fff;">Player</div>
+                            <div class='textBox name' style="color: #fff;">Player3</div>
                             <div id='player3Score' class='textBox'>&nbsp;</div>
                             <div id='player3Bet' class='textBox'>&nbsp;</div>
                             <div id='player3Result' class='textBox'>&nbsp;</div>
