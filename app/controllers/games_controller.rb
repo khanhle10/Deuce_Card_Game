@@ -11,7 +11,13 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
   end
-  
+
+  def edit
+  end
+
+  def update
+  end
+
   def show
 
     #api_key = ""
@@ -53,8 +59,8 @@ class GamesController < ApplicationController
     end
   end
 
-  def destory
-    @game.destory
+  def destroy
+    @game.destroy
     redirect_to games_url
   end
 

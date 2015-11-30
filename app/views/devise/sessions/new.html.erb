@@ -1,5 +1,48 @@
-<h2>Log in</h2>
-
+<div class="container">
+    <div id="loginbox" style="margin-top:10px; padding-top: 10px; align: center;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info" style="height: 480px; width: 460px; margin: 10px; align: center;" >
+                <div class="panel-heading">
+                    <div class="panel-title text-center" >Sign In</div>
+                </div>
+                <div style="height: 400px; width: 440px; margin: 10px; align: center; padding: 2%;" class="panel-body" >
+                    <form id="loginform" class="form-horizontal" role="form" style="height: 250px; width: 380px; padding: 2%; align-items: center;">
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <div style="margin-bottom: 20px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <%= f.email_field :email, autofocus: true, class: 'form-control' , autofocus: true, placeholder: 'Email' %>
+                        </div>
+                        <div style="margin-bottom: 20px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <!--<input id="login-password" type="password" class="form-control" name="password" placeholder="password">-->
+                            <%= f.password_field :password, autocomplete: "off", class: 'form-control', autofocus: true, placeholder: 'Password'  %>
+                        </div>
+                        <div class="input-group" style="width: 300px">
+                            <% if devise_mapping.rememberable? -%>
+                                <%= f.check_box :remember_me, class: 'checkbox', type: 'checkbox'%>
+                                <%= f.label :remember_me %>
+                            <% end %>
+                        </div>
+                        <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+                            <div class="col-sm-12 controls">
+                                <!--  <a id="btn-login" href="#" class="btn btn-success">Login  </a> -->
+                               <%= f.submit "Login", class: "btn btn-primary" %>
+                            </div>
+                        </div>
+                        <% end %>
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                              <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                <%= render "devise/shared/links" %>
+                                </div>
+                              </div>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -23,4 +66,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "devise/shared/links" %> -->

@@ -2,8 +2,8 @@ class Game < ActiveRecord::Base
 
   attr_accessible :first_winner_id, :second_winner_id, :name1, :name2, :session_id
 
-  has_many :players, :dependent => :destory, :order => "seat order"
-  has_many :rounds, :dependent => :destory, :order => "position order"
+  has_many :players, :dependent => :destory, :order => "seat ASC"
+  has_many :rounds, :dependent => :destory, :order => "position ASC"
   belong_to :winner, :class_name => "Player"
 
   delegate :card_passing_sets, :to => :last_round
