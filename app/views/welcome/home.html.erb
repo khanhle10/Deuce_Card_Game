@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.brn{
+    margin:  20px;
+}
+
+.placeHolder {
+  margin:auto;
+  position:relative;
+  border-radius: 25px;
+  background: url('http://i.imgur.com/PKO4t3b.png');
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-repeat: no-repeat;
+  background-size:800px;;
+  height: 800px;
+  width:  800px;
+}
+.center{
+  margin:auto;
+}
+.wrapper {
+  text-align: center;
+}
+.button {
+  position: absolute;
+  top: 50%;
+ }
+>>>>>>> ef771d4bc3979e638a2a24433b5a7b2f09c221e9
+
+
+.panel-heading
+{
+  background-color: #FAFAFA;
+
+}
+.chat
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.chat li
+{
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #FAFAFA;
+}
+
+.chat li.left .chat-body
+{
+  margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+  margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+  margin: 0;
+  color: #FAFAFA;
+
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+  margin-right: 5px;
+
+}
+
+.panel-body
+{
+  overflow-y: scroll;
+  height:100px;
+
+}
+
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color:#FAFAFA;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: #FAFAFA;
+}
+
+::-webkit-scrollbar-thumb
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #FAFAFA;
+}
+
+</style>
+  <title>Deuces</title>
+
+  <script>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    ''
+  <%= csrf_meta_tags %>
+  </script>
+  <link rel="stylesheet" href="./layouts/stylesheets/chat.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  <!-- Pusher test -->
+  <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="./assets/JavaScript/PusherChatWidget.js"></script>
+  <script>
+    $(function() {
+    var pusher = new Pusher('YOUR_APP_KEY');
+    var chatWidget = new PusherChatWidget(pusher, {
+      chatEndPoint: './src/chat.rb'
+    });
+  });
+  </script>
+</head>
+
+<body>
+<!--Navbar-->
+
+  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="/home.html"><span class="glyphicon glyphicon-home"></span> Home</a>
+        </li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="navbar-right">
+  	<li><a href="login.html">Login/Register</a></li>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<!--Button-->
+<div class = "container">
+  <hr>
+  <div class="row">
+    <div class="placeHolder">
+      <h1 style="text-align:center; font-size:60px; color:#FF00FF">Deuces Man</h1>
+      <div style="position:relative; top:100px;"class="wrapper"style = "text-align: center;">
+        <button  type = "button" class="brn btn-primary btn-lg ">Join A Game</button>
+      </div>
+      <div style="position:relative; top:100px;" class="wrapper" style = "text-align: center;">
+          <button  type = "button" class="brn1 btn-primary btn-lg">Start A Game</button>
+      </div>
+
+<!--Chatbox-->
+      <div style="height:250px;width:104%;right:16px;top:360px;position:relative;"class="container">
+          <div class="row">
+              <div class="col-md-5">
+                  <div class="panel panel-primary">
+                      <div class="panel-heading" id="accordion">
+                          <span class="glyphicon glyphicon-comment"></span> Chat
+
+                      </div>
+                      <div class="panel-body">
+                      </div>
+                      <div class="panel-footer">
+                          <div class="input-group">
+                              <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                              <span class="input-group-btn">
+                                  <button class="btn btn-warning btn-sm" id="btn-chat">
+                                      Send</button>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
