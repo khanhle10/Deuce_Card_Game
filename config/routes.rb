@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     get 'signin' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
     get 'signup' => 'devise/registrations#new'
-    post 'Forgot your password?' => 'devise/password#new'
+    get 'Forgot your password' => 'devise/password#new'
+    get 'joingame' => 'users#index'
     delete 'signout' => 'devise/sessions#destroy'
 
   end
@@ -36,7 +37,9 @@ Rails.application.routes.draw do
   end
   # Devise authentication routing
   #login
-
+  resources :conversations do
+    resources :messages
+  end
 
 
 
