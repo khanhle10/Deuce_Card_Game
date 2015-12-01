@@ -40,7 +40,7 @@ gem 'json'
 gem 'devise'
 gem 'private_pub'
 gem 'thin'
-
+gem 'faye'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
