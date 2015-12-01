@@ -36,6 +36,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'private_pub'
+gem 'therubyracer'
 gem 'thin'
 gem 'faye'
 # Use Capistrano for deployment

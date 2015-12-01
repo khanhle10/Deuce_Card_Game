@@ -7,6 +7,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' %>
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
+  <%= csrf_meta_tags %>
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <!-- Optional theme -->
@@ -14,22 +15,21 @@
   <link href="css/business-frontpage.css" rel="stylesheet">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-
-  <%= csrf_meta_tags %>
 </head>
 <body>
+
 <%= render 'layouts/nav' %>
+
 <div class="container">
-  <audio id="chatAudio"><source src="/sound.notification.mp3" type="audio/mpeg"><audio>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert%></p>
+  <% end %>
   <%= yield %>
 </div>
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert%></p>
-<% end %>
-<%= yield %>
-<!-- Navigation -->
+<audio id="chatAudio"><source src="/sound.notification.mp3" type="audio/mpeg"><audio>
 </body>
+
 </html>

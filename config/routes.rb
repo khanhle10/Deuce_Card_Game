@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'signin' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
     get 'signup' => 'devise/registrations#new'
-    get 'Forgot your password' => 'devise/password#new'
+    get '/Forgot%20your%20password?' => 'devise/password#new'
     get 'joingame' => 'users#index'
     delete 'signout' => 'devise/sessions#destroy'
 
