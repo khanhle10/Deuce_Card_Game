@@ -9,7 +9,8 @@
 
 .business-header {
     height: 400px;
-    background: url('http://placehold.it/1920x400') center center no-repeat scroll;
+    padding-top: 70px;
+    background: url('http://i.imgur.com/mmqbCsa.png') center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -30,3 +31,15 @@
 footer {
     margin: 50px 0;
 }
+
+a{
+    padding-bottom: 20px;
+    color: #000;
+}
+
+a:hover{
+    color: #000;
+    text-shadow: 0 0 6px #FF0000;
+}
+
+

@@ -20,9 +20,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.inet     :last_sign_in_ip
 
       ## Identifiable
-      t.string   : first_name
-      t.string   : last_name
-
+      #t.string   : first_name
+      #t.string   : last_name
+      t.string    :name
       ## Confirmable
       t.string   :confirmation_token
       t.datetime :confirmed_at
