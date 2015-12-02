@@ -1,5 +1,7 @@
 class PlayerRound < ActiveRecord::Base
-  attr_accessible :player_id, :round_id, :round_winners
+  attr_accessible :player_id
+  attr_accessible :round_id
+  attr_accessible :round_winners
 
   belong_to :player
   belong_to :round

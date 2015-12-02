@@ -1,6 +1,7 @@
 class CardPassingSet < ActiveRecord::Base
 
-  attr_accessible :player_round_id, :is_ready
+  attr_accessible :player_round_id 
+  attr_accessble :is_ready
 
   belongs_to :player_round
   has_one :player, :through => :player_round

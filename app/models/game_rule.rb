@@ -1,5 +1,8 @@
 class GameRule < ActiveRecord::Base
-  attr_accessible :round_id, :start_id, :position, :start_suit
+  attr_accessible :round_id
+  attr_accessible :start_id
+  attr_accessible :position
+  attr_accessible :start_suit
 
   after_create :start_with_three_of_spade?, :if => :start_first?
 

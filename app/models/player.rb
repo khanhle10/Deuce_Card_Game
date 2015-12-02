@@ -1,5 +1,8 @@
 class Player < ActiveRecord::Base
-  attr_accessible :game_id, :user_id, :seat, :position
+  attr_accessible :game_id
+  attr_accessible :user_id
+  attr_accessible :seat
+  attr_accessible :position
 
   belong_to :game
   belong_to :user
