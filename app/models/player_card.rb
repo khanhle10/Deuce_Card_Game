@@ -13,5 +13,5 @@ class PlayerCard < ActiveRecord::Base
 
   delegate :suit, :value, :suit_weight, :value_weight, :to => :card
   delegate :last_place, :to => :player
-  
+
 end

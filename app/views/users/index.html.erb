@@ -1,13 +1,13 @@
 <div class="row">
   <!-- Not implemented on tutorial -->
-  <div class="col-md-4">
+  <div class="col-md-4 pull-left" >
     <div style="height: 300px; overflow-y: auto;">
       <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">Users In Game</div>
 
         <!-- Table -->
-        <table class="table">
+        <table class="table" style="align-items: pull-left">
           <thead>
           <tr>
             <th>#</th>
@@ -31,11 +31,11 @@
         </table>
       </div>
 
-    </div>
-    <hr>
-    <h3>Your Conversations</h3>
+    </div >
+    <div
 
-    <div style="height: 400px; overflow-y: auto;">
+    <div style="height: 400px; overflow-y: auto;" class="col-md-6 pull-right">
+        <h3>Your Conversations</h3>
       <% if @conversations.any? %>
           <ul class="media-list">
             <% @conversations.each do |conversation| %>
