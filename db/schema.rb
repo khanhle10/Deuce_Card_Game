@@ -11,23 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125183326) do
+ActiveRecord::Schema.define(version: 20151202121325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "card_passing_sets", force: :cascade do |t|
-    t.integer  "player_round_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "cards", force: :cascade do |t|
-    t.string   "suit"
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "cards_playeds", force: :cascade do |t|
     t.integer  "player_card_id"
@@ -55,9 +42,13 @@ ActiveRecord::Schema.define(version: 20151125183326) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "Player1"
+    t.integer "Player2"
+    t.integer "Player3"
+    t.integer "Player4"
+    t.integer "CurrentHand"
+    t.integer "LargestCard"
+    t.integer "CurrentPlayer"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -79,13 +70,6 @@ ActiveRecord::Schema.define(version: 20151125183326) do
     t.datetime "updated_at",          null: false
   end
 
-  create_table "player_rounds", force: :cascade do |t|
-    t.integer  "player_id"
-    t.integer  "round_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "players", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "game_id"
@@ -93,16 +77,6 @@ ActiveRecord::Schema.define(version: 20151125183326) do
     t.integer  "total_score", default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-  end
-
-  create_table "rounds", force: :cascade do |t|
-    t.integer  "game_id"
-    t.integer  "dealer_id"
-    t.integer  "position",               default: 0
-    t.boolean  "hearts_broken",          default: false
-    t.boolean  "cards_have_been_passed", default: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
   end
 
   create_table "users", force: :cascade do |t|
