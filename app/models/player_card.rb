@@ -8,7 +8,7 @@ class PlayerCard < ActiveRecord::Base
 
   belongs_to :player
   belongs_to :card
-  has_one :cards_played, :dependent => :destory
+  has_one :cards_played, :dependent => :destroy
 
   validates_presence_of :player_id
   validates_presence_of :card_id

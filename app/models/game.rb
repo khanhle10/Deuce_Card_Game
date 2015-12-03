@@ -6,8 +6,8 @@ class Game < ActiveRecord::Base
   attr_accessible :name2
   attr_accessible :session_id
 
-  has_many :players, dependent: :destory,-> {order "seat ASC"}
-  has_many :rounds, dependent: :destory,-> {order "position ASC"}
+  has_many :players, dependent: :destroy,-> {order "seat ASC"}
+  has_many :rounds, dependent: :destroy,-> {order "position ASC"}
   belongs_to :winner, :class_name => "Player"
 
   delegate :card_passing_sets, :to => :last_round
