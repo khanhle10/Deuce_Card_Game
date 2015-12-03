@@ -4,7 +4,7 @@ class CardsPlayed < ActiveRecord::Base
   attr_accessible :position
 
   belong_to :player_cards
-  has_one :player, :through, => :player_cards
+  has_one :player, :through => :player_cards
   has_one :cards, :through => :player_cards
   belong_to :cards_played
 
