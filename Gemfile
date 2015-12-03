@@ -45,3 +45,4 @@ gem 'faye'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'protected_attributes'
+gem 'activerecord-deprecated_finders', require: 'active_record/deprecated_finders'
