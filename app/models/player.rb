@@ -4,8 +4,8 @@ class Player < ActiveRecord::Base
   attr_accessible :seat
   attr_accessible :position
 
-  belong_to :game
-  belong_to :user
+  belongs_to :game
+  belongs_to :user
   has_many :player_cards
   has_many :cards, :through => :player_cards
   has_many :cards_played, :through => :player_cards

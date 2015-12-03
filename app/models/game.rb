@@ -8,7 +8,7 @@ class Game < ActiveRecord::Base
 
   has_many :players, :dependent => :destory, :order => "seat ASC"
   has_many :rounds, :dependent => :destory, :order => "position ASC"
-  belong_to :winner, :class_name => "Player"
+  belongs_to :winner, :class_name => "Player"
 
   delegate :card_passing_sets, :to => :last_round
   delegate :cards_have_been_passed, :to => :last_round

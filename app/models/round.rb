@@ -11,8 +11,8 @@ class Round < ActiveRecord::Base
   after_create :deal_cards
   after_create :fill_table
 
-  belong_to :game
-  belong_to :dealer, :class_name => "Player"
+  belongs_to :game
+  belongs_to :dealer, :class_name => "Player"
 
   has_many :player_rounds
   has_many :tricks, :dependent => :through => :player_rounds
