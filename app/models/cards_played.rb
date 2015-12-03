@@ -15,6 +15,6 @@ class CardsPlayed < ActiveRecord::Base
   delegate :suit, :value, :beat_previous_play?, :value_weight, :to => :cards
   # check for current player seat
   def get_position(current_player)
-    current_player.nil? player.seat : (player.seat - current_player.seat) % 4
+    current_player.nil? ? player.seat : (player.seat - current_player.seat) % 4
   end
 end
