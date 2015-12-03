@@ -31,7 +31,7 @@ class Player < ActiveRecord::Base
   end
 
   def choose_cards(pick_suit, is_first_play)
-    choose = pick_suit.nil? hand.shuffle : hand
+    choose = pick_suit.nil? ? hand.shuffle : hand
     choose.each { |c| return c if c.is_valid?(pick_suit, is_first_play)}
   end
 
