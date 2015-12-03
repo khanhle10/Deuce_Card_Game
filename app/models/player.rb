@@ -9,7 +9,7 @@ class Player < ActiveRecord::Base
   has_many :player_cards
   has_many :cards, :through => :player_cards
   has_many :cards_played, :through => :player_cards
-  has_many :player_rounds,-> {order: "create_at Round"}
+  has_many :player_rounds,-> {:order "create_at Round"}
 
   validates_presence_of :game_id
   validates_presence_of :seat
