@@ -8,7 +8,7 @@ class GameRule < ActiveRecord::Base
 
   belongs_to :round
   belongs_to :winner_id, :class_name => "Player"
-  has_many :cards_played, :dependent :destroy,-> {:order "position ASC"}
+  has_many :cards_played, :dependent => :destroy, :order => "position ASC"
 
   validates_presence_of :round_id
   validates_presence_of :winner_id
