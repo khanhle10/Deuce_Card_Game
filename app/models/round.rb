@@ -15,7 +15,7 @@ class Round < ActiveRecord::Base
   belongs_to :dealer, :class_name => "Player"
 
   has_many :player_rounds
-  has_many :tricks, :dependent => :through => :player_rounds
+  has_many :tricks => :dependent, :through => :player_rounds
   has_many :card_passing_sets, :through => :player_rounds
 
   validates_presence_of :game_id
