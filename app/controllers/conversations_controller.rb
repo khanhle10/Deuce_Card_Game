@@ -1,7 +1,7 @@
 class ConversationsController < ApplicationController
   before_filter :authenticate_user!
 
- layout false
+  layout false
 
  def create
    if Conversation.between(params[:sender_id],params[:recipient_id]).present?
@@ -15,6 +15,7 @@ class ConversationsController < ApplicationController
 
  def show
    @conversation = Conversation.find(params[:id])
+   puts @conversation
    @reciever = interlocutor(@conversation)
    @messages = @conversation.messages
    @message = Message.new

@@ -24,17 +24,17 @@ Rails.application.routes.draw do
   #root 'welcome#lobby'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  resources :games do
-    post "reload" => "reloads#reload_all"
-    post "reload_game_rules" => "reloads#reload_game_rules"
-    post "fill_table" => "fill#fill_table"
-    post "new_round" => "round#create"
-    post "new_game_rule" => "game_rules#create"
-    post "play_cards" => "cards_played#create"
-    post "pass_cards" => "cards_to_pass#create"
-    post "toggle_passing_status" => "cards_to_pass#toggle"
-    post "passing_set_ready" => "cards_to_pass#passing_set_ready"
-  end
+  #resources :games do
+  #  post "reload" => "reloads#reload_all"
+  #  post "reload_game_rules" => "reloads#reload_game_rules"
+  #  post "fill_table" => "fill#fill_table"
+  #  post "new_round" => "round#create"
+  #  post "new_game_rule" => "game_rules#create"
+  #  post "play_cards" => "cards_played#create"
+  #  post "pass_cards" => "cards_to_pass#create"
+  #  post "toggle_passing_status" => "cards_to_pass#toggle"
+  #  post "passing_set_ready" => "cards_to_pass#passing_set_ready"
+  #end
   # Devise authentication routing
   #login
   resources :conversations do

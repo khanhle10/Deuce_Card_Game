@@ -5,7 +5,7 @@ class CreateGameRules < ActiveRecord::Migration
       t.integer :winner_id
       t.integer :position
       t.string :winner_suit
-      
+
       t.timestamps null: false
     end
   end
