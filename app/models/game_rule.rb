@@ -20,7 +20,7 @@ class GameRule < ActiveRecord::Base
     card ||= player.choose_cards(pick_suit, start_first?)
     card_position = next_position
     PlayedCard.create(:player_card_id => card.id, :rule_id => self.id, :position => card_position)
-       unless has_card_from?(player) self.update_attributes(:pick_suit => card.suit) if player == winner_id
+       unless has_card_from?(player) then self.update_attributes(:pick_suit => card.suit) if player == winner_id
     round.lost_challenge = true if card.is_less_than_challenge?
     round.save
   end
