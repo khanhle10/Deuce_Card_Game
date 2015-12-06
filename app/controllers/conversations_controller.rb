@@ -1,32 +1,14 @@
 class ConversationsController < ApplicationController
-  before_filter :authenticate_user!
 
-  layout false
+  def index
+    @chat_message = Conversation.new
+  end
 
  def create
-   if Conversation.between(params[:sender_id],params[:recipient_id]).present?
-     @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
-   else
-     @conversation = Conversation.create!(conversation_params)
-   end
+   @chat_message = Conversation.new(params[:chat_message])
 
-   render json: { conversation_id: @conversation.id }
- end
-
- def show
-   @conversation = Conversation.find(params[:id])
-   puts @conversation
-   @reciever = interlocutor(@conversation)
-   @messages = @conversation.messages
-   @message = Message.new
- end
-
- private
- def conversation_params
-   params.permit(:sender_id, :recipient_id)
- end
-
- def interlocutor(conversation)
-   current_user == conversation.recipient ? conversation.sender : conversation.recipient
+   Pusher.trigger('chat', 'new_message',{name: @chat_message.name, message: @chat_message.message
+     }, {socket_id: params[:socket_id]})
+   respond_to :js
  end
 end

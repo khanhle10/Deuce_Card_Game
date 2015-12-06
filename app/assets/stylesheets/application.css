@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ 
+ #new_conversation_message label {
+   display: block;
+ }

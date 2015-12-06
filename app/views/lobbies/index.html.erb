@@ -1,0 +1,29 @@
+
+<div style="padding-top: 100px;"
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Lobbies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lobbies.each do |lobby| %>
+      <tr>
+        
+        <td><%= link_to 'Show', lobby %></td>
+        <td><%= link_to 'Edit', edit_lobby_path(lobby) %></td>
+        <td><%= link_to 'Destroy', lobby, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lobby', new_lobby_path %>
+</div>
