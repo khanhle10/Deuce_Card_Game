@@ -11,10 +11,12 @@
       </ul>
     </div>
   <% end %>
+  <%= @users.each do |user| %>
   <div class="actions">
-    <%= f.label @user %>
+    <%= f.label user.name %>
     <label>
     <%= f.submit "Create A Game" %>
     </label>
   </div>
+  <% end %>
 <% end %>

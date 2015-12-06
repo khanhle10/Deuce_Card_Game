@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :conversations, :foreign_key => :sender_id
-
+  has_one :game_id
+  has_one :game_score
   after_create :create_default_conversation
 
 
