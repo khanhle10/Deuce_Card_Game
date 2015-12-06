@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2> List of games </h2>
+  <strong>Name:</strong>
+  <%= @test_name.name %>
+</p>
+
+<%= link_to 'Edit', edit_test_name_path(@test_name) %> |
+<%= link_to 'Back', test_names_path %>
