@@ -1,3 +1,80 @@
 // Place all the styles related to the conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$chatboxBgColor : #ffffff;
+$chatboxBorderColor : #f50057;
+$chatboxMessageBg : #ffffff;
+$chatboxTitleBg : #f50057;
+$defaultFontColor : #000000;
+$defaultFontSize : 14px;
+$defaultTitleFontSize : 18px;
+$messageDefaultMargin : 0 15px;
+$messageDefaultPadding : 0 10px;
+$messageInputBoxBg : #fce4ec;
+$messageInputBoxBorderColor: #ec407a;
+
+#chatbox {
+  width: 250px;
+  height: 350px;
+  margin: 10px;
+  position: fixed;
+  right: 250px;
+  bottom: 350px;
+  border: 2px solid $chatboxBorderColor;
+  background-color: $chatboxBgColor;
+
+  .chatboxTitle {
+    width: 100%;
+    height: 35px;
+    font-size: $defaultTitleFontSize;
+    background-color: transparent;
+  }
+  hr {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+}
+
+#messagesArea {
+  width: 100%;
+  height: 235px;    // #chatbox.height - chatboxTitle.height - messageInputBox.height
+  background-color: transparent;
+  overflow: auto;
+
+  .message {
+    width: 100%;
+    padding: $messageDefaultPadding;
+    margin: $messageDefaultMargin;
+    color: $defaultFontColor;
+    font-size: $defaultFontSize;
+    display: block;
+    background-color: transparent;
+
+    .senderName {
+      display: inline;
+    }
+    .senderMessage {
+      display: inline;
+      margin: 0 15px;
+    }
+    .messageTime {
+      float: right;
+      display: inline;
+    }
+  }
+}
+
+#messageInputBoxWrapper {
+  width: 100%;
+  height: 80px;
+  background-color: transparent;
+
+  #messageInputBox {
+    height: 100%;
+    width: 85%;
+    background-color: $messageInputBoxBg;
+    border: 2px solide $messageInputBoxBorderColor;
+  }
+}

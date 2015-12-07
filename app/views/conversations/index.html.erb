@@ -1,3 +1,21 @@
+<div id="chatbox">
+  <div class="chatboxTitle">
+    Public Chat
+  </div>
+
+  <div id="messagesArea"></div>
+
+  <hr/>
+
+  <div id="messageInputBoxWrapper">
+    <input type="text" class="form-control" id="messageInputBox" placeholder="Message ..."/>
+    <button type="button" class="btn btn-success btn-md" onclick="sendMessage(<%= current_user[:id] %>)">Send</button>
+  </div>
+
+</div>
+
+
+
 <div style="padding-top: 100px">
 <%= form_for @chat_message, remote: true do |f| %>
   <div style="display:none">

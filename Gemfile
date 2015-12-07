@@ -9,7 +9,6 @@ group :production do
  gem 'rails_12factor'
  gem 'puma'
 end
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,10 +36,10 @@ gem 'spring',        group: :development
 gem 'pusher'
 gem 'devise'
 
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'protected_attributes'
-gem 'activerecord-deprecated_finders', require: 'active_record/deprecated_finders'

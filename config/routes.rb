@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :conversations, only: [:create]
+
   as :user do
     get 'signin' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
     post 'conversations' => 'conversations#create'
     delete 'signout' => 'devise/sessions#destroy'
   end
-
+  post '/messages/sendMessage' => 'messages#send_message'
   resources :users do
    resources :conversations do
     resources :messages
