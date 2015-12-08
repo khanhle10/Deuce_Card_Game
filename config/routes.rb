@@ -1,31 +1,26 @@
 Rails.application.routes.draw do
 
-
   resources :lobbies
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :conversations, only: [:create]
-
   as :user do
+    root 'welcome#index'
+    get 'welcome/index' => 'welcome#index'
     get 'signin' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
     get 'signup' => 'devise/registrations#new'
     get '/Forgot%20your%20password?' => 'devise/password#new'
     get 'joingame' => 'conversations#index'
     post 'conversations' => 'conversations#create'
+    post '/messages/sendMessage' => 'messages#send_message'
     delete 'signout' => 'devise/sessions#destroy'
   end
-  post '/messages/sendMessage' => 'messages#send_message'
-  resources :users do
-   resources :conversations do
-    resources :messages
-   end
-  end
+
   # You can have the root of your site routed with "root"
 
-  root 'welcome#index'
-  get 'welcome/index' => 'welcome#index'
+
   #root 'welcome#login'
   #direct to main page.
   #get 'welcome/lobby' => 'welcome#lobby'

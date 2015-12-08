@@ -1,3 +1,4 @@
 class Lobby < ActiveRecord::Base
-  has_many :game_id, :user_name, :game_score
+  has_many :game_id
+  has_many :users
 end

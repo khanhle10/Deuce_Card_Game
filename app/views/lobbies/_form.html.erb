@@ -1,5 +1,6 @@
 
 <%= form_for(@lobby) do |f| %>
+  <%= f.label @user_name.name %>
   <% if @lobby.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@lobby.errors.count, "error") %> prohibited this lobby from being saved:</h2>
@@ -11,12 +12,9 @@
       </ul>
     </div>
   <% end %>
-  <%= @users.each do |user| %>
   <div class="actions">
-    <%= f.label user.name %>
     <label>
     <%= f.submit "Create A Game" %>
     </label>
   </div>
-  <% end %>
 <% end %>

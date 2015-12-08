@@ -14,7 +14,7 @@
   <tbody>
     <% @lobbies.each do |lobby| %>
       <tr>
-        
+
         <td><%= link_to 'Show', lobby %></td>
         <td><%= link_to 'Edit', edit_lobby_path(lobby) %></td>
         <td><%= link_to 'Destroy', lobby, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,5 +25,5 @@
 
 <br>
 
-<%= link_to 'New Lobby', new_lobby_path %>
+ <button><%= link_to 'Create A Game', new_lobby_path %></button>
 </div>
