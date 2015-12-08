@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :conversations, :foreign_key => :sender_id
   has_one :game_id
-  has_one :game_score
+  belongs_to :lobby
   after_create :create_default_conversation
 
 
