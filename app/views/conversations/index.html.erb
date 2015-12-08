@@ -9,7 +9,7 @@
 
   <div id="messageInputBoxWrapper">
     <input type="text" class="form-control" id="messageInputBox" placeholder="Message ..."/>
-    <button type="button" class="btn btn-success btn-md" onclick="sendMessage(<%= current_user[:id] unless current_user.nil? %>)">Send</button>
+    <button type="button" class="btn btn-success btn-md" onclick="sendMessage(<%= current_user[:id]%>)">Send</button>
   </div>
 
 </div>
