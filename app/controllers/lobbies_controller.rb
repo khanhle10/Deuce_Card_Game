@@ -1,6 +1,6 @@
 class LobbiesController < ApplicationController
   before_action :set_lobby, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /lobbies
   # GET /lobbies.json
   def index
@@ -59,6 +59,10 @@ class LobbiesController < ApplicationController
       format.html { redirect_to lobbies_url, notice: 'Lobby was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def user_info
+    @user_name = Users.all
   end
 
   private
