@@ -1,6 +1,3 @@
-// Place all the styles related to the deuces controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 player-image {
   width: 50px;
   height: 50px;
@@ -46,6 +43,8 @@ player-image {
   width:750px;
   height:750px;
   padding-bottom: 15px;
+  border: 2px solid blue;
+  z-index: 1;
 }
 .body {
   width: 1200px;
