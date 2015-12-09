@@ -1,0 +1,43 @@
+<div style="padding-top: 100px;">
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1><%= @deuce[:name] %></h1>
+
+  <hr/>
+
+  <div id="players" class="row">
+    <% user = User.find(@deuce[:player1]) %>
+
+    <div class="col-md-2">
+      <img src="http://localhost:3000/assets/special.jpg" class="img-rounded player-image" />
+      <span><%= user[:name] %></span>
+    </div>
+
+    <% if ! @deuce[:player2].nil? %>
+    <div class="col-md-2">
+      <% user = User.find(@deuce[:player2]) %>
+      <img src="/assets/playerface.png" class="img-rounded player-image" />
+      <span><%= user[:name] %></span>
+    </div>
+    <% end %>
+
+    <% if ! @deuce[:player3].nil? %>
+    <div class="col-md-2">
+      <% user = User.find(@deuce[:player3]) %>
+      <img src="/assets/playerface.png" class="img-rounded player-image" />
+      <span><%= user[:name] %></span>
+    </div>
+    <% end %>
+
+    <% if ! @deuce[:player4].nil? %>
+    <div class="col-md-2">
+      <% user = User.find(@deuce[:player4]) %>
+      <img src="/assets/playerface.png" class="img-rounded player-image" />
+      <span><%= user[:name] %></span>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<button class="btn btn-primary btn-lg">Start Game</button>
+</div>

@@ -2,7 +2,7 @@
 <div style="padding-top: 100px;"
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Lobbies</h1>
+<h1>Listing Game</h1>
 
 <table>
   <thead>
@@ -14,7 +14,6 @@
   <tbody>
     <% @lobbies.each do |lobby| %>
       <tr>
-
         <td><%= link_to 'Show', lobby %></td>
         <td><%= link_to 'Edit', edit_lobby_path(lobby) %></td>
         <td><%= link_to 'Destroy', lobby, method: :delete, data: { confirm: 'Are you sure?' } %></td>

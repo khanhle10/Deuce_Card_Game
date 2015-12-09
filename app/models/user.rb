@@ -3,16 +3,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :conversations, :foreign_key => :sender_id
-  has_one :game_id
+  has_one :lobby, :foreign_key => :game_id
   belongs_to :lobby
   after_create :create_default_conversation
 
-
-  private
-
-  # for demo purposes
-
-  def create_default_conversation
-    Conversation.create(sender_id: 1, recipient_id: self.id) unless self.id == 1
-  end
 end

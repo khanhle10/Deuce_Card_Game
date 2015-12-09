@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206103401) do
+ActiveRecord::Schema.define(version: 20151209074615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20151206103401) do
 
   add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id", using: :btree
   add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
+
+  create_table "deuces", force: :cascade do |t|
+    t.integer  "player_count"
+    t.string   "name"
+    t.string   "player1"
+    t.string   "player2"
+    t.string   "player3"
+    t.string   "player4"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "game_rules", force: :cascade do |t|
     t.integer  "round_id"
@@ -53,6 +64,8 @@ ActiveRecord::Schema.define(version: 20151206103401) do
 
   create_table "lobbies", force: :cascade do |t|
     t.integer  "game_id"
+    t.integer  "game_score"
+    t.string   "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

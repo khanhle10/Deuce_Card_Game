@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Deuces Card Game</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+    <script src="/assets/javascripts/deuce.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+        <%= javascript_include_tag('deuce.js') %>
+        <script>
+        var ROOM_CHANNEL = "deuce_";
+        var PLAYER_JOINED = "playerJoined";
+        var ROOM_CREATED = "roomCreated";
+
+        var pusher
+
+        $(document).ready(function() {
+
+            pusher = new Pusher("f186c8947d4b1acc8fdf");
+
+            // Subscribe this user to the public channel
+            var publicChannel = pusher.subscribe(PUBLIC_CHANNEL);
+            publicChannel.bind(ROOM_CREATED, function(data) {
+                // Refresh div
+                $('#gameList').load('/deuces/ #gameList');
+            });
+        });
+
+        function createGame() {
+            var roomName = $('#roomName').val();
+
+            $.ajax({
+                url: '/deuces',
+                type: 'POST',
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(
+                    {
+                        "roomName": roomName
+                    }
+                ),
+                success: function(data) {
+                  console.log("asdsadsaf");
+                  window.location = "deuces/"+data["id"];
+            pusher.unsubscribe(PUBLIC_CHANNEL);
+                    // Subscribe to pusher channel
+                    var channel = pusher.subscribe(ROOM_CHANNEL+data["id"]);
+                    channel.bind(PLAYER_JOINED, function(eventData) {
+                        // Refresh div
+                        $('#players').load('/deuces/'+data["id"]+' #players');
+                    });
+                }
+            });
+        }
+
+        function joinGame(id) {
+            $.ajax({
+                url: '/deuces/join/'+id,
+                type: 'POST',
+                success: function(data) {
+                  window.location = "http://localhost:3000/deuces/"+id;
+            pusher.unsubscribe(PUBLIC_CHANNEL);
+                    // Subscribe to pusher channel
+                    var channel = pusher.subscribe(ROOM_CHANNEL+id);
+                    channel.bind(PLAYER_JOINED, function(eventData) {
+                        // Refresh div
+                        $('#players').load('/deuces/'+id+' #players');
+                    });
+                }
+            });
+        }
+       </script>
+
+</head>
+
+<body>
+
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header" style="padding-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" style="margin: 10px; align-items: center;">
+                    <h1 class="tagline" style="align-text: center;">Welcome to an online card game called Deuces</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>How to play</h2>
+                <p>The game is named Deuces after the fact that twos are the largest valued cards in the game.  The deck is split evenly between each player.  The order of the suit card from lowest to highest is diamond, clover, heart, then spades.  The player with lowest value 3 of diamonds must go first.  Their first move must incorporate the 3 of diamonds.  The current player in power can play a single, double, triple, quadruples, or any 5 combination card (which are the same as a poker hand. For information about poker hands <a href="https://en.wikipedia.org/wiki/List_of_poker_hands">click here</a>).  Everyone else following that player must play the same type of combo.</p>
+                <p>For example, if a player plays a straight then the following players must play a 5 combo that is higher than the pervious player until no one can beat the last played cards.  Then the player that played the highest cards that no one can beat has the power.  Repeat until one player gets rid of their hand.</p>
+                <p>
+                    <input type="text" placeholder="Room Name..." id="roomName"/>
+                    <button class="btn btn-primary btn-lg" onclick="createGame()">Start New Game &raquo;</button>
+                </p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <div id="gameList" class="row">
+            <div class="container-fluid">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Lobby Name</th>
+                                <th>Player One</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <% unless @deuces.nil? %>
+                           <% @deuces.each do |deuce| %>
+                           <% user = User.find(deuce[:player1]) %>
+                           <tr>
+                               <td><%= deuce[:name] %></td>
+                               <td><%= user.nil? ? "Annonymous" : user[:name] %></td>
+                               <td><button class="btn btn-primary btn-lg" onclick="joinGame(<%= deuce[:id] %>)">Join</button></td>
+                           </tr>
+                           <% end %>
+                       <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <%= stylesheet_link_tag "conversations"%>
+<%= javascript_include_tag('conversation.js') %>
+
+
+
+
+</body>
+
+</html>
