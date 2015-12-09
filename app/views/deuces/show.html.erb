@@ -1,18 +1,20 @@
-<div style="padding-top: 100px;">
+<div style="padding-top: 50px; width:99%; height: 99%;">
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <h1><%= @deuce[:name] %></h1>
-
+  <center><h1><%= @deuce[:name] %></h1></center>
   <hr/>
-
-  <div id="players" class="row">
+  <center><button class="btn btn-primary btn-lg">Start Game</button></center>
+<div class="content-box">
+  <center>
+  <div class="players">
+    <div class="player-center-top" style="margin: 10px;">
     <% user = User.find(@deuce[:player1]) %>
-
-    <div class="col-md-2">
-      <img src="http://localhost:3000/assets/special.jpg" class="img-rounded player-image" />
-      <span><%= user[:name] %></span>
+     <div class="col-md-2">
+       <center><h2><%= user[:name] %></h2></center>
+       <img src="/assets/special.jpg" class="img-circle img-responsive img-center" />
+     </div>
     </div>
 
+    <div class="player-left" style="margin: 10px;">
     <% if ! @deuce[:player2].nil? %>
     <div class="col-md-2">
       <% user = User.find(@deuce[:player2]) %>
@@ -20,7 +22,9 @@
       <span><%= user[:name] %></span>
     </div>
     <% end %>
+    </div>
 
+    <div class="player-right" style="margin: 10px;">
     <% if ! @deuce[:player3].nil? %>
     <div class="col-md-2">
       <% user = User.find(@deuce[:player3]) %>
@@ -28,7 +32,8 @@
       <span><%= user[:name] %></span>
     </div>
     <% end %>
-
+    </div>
+    <div class="player-center-bottom" style="margin: 10px;">
     <% if ! @deuce[:player4].nil? %>
     <div class="col-md-2">
       <% user = User.find(@deuce[:player4]) %>
@@ -37,7 +42,24 @@
     </div>
     <% end %>
   </div>
+  </div>
+</center>
+</div>
 </div>
 
-<button class="btn btn-primary btn-lg">Start Game</button>
+
+<div id="chatbox">
+  <div class="chatboxTitle">
+    Game Chat
+  </div>
+  <div class="chatContainer">
+  <div id="messagesArea"></div>
+  <hr/>
+  <center>
+  <div id="messageInputBoxWrapper">
+    <input type="text" class="form-control" id="messageInputBox" placeholder="Message ..."/>
+  </div>
+  <button type="button" class="btn btn-success btn-sm" onclick="sendMessage(<%= current_user[:id] %>)">Send</button>
+</center>
+</div>
 </div>

@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,22 +22,27 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <%= stylesheet_link_tag "conversations"%>
+    <%= javascript_include_tag('conversation.js') %>
 
         <%= javascript_include_tag('deuce.js') %>
         <script>
         var ROOM_CHANNEL = "deuce_";
         var PLAYER_JOINED = "playerJoined";
         var ROOM_CREATED = "roomCreated";
-
         var pusher
-
         $(document).ready(function() {
-
             pusher = new Pusher("f186c8947d4b1acc8fdf");
-
-            // Subscribe this user to the public channel
-            var publicChannel = pusher.subscribe(PUBLIC_CHANNEL);
-            publicChannel.bind(ROOM_CREATED, function(data) {
+            // Subscribe this user to the channel to chat
+            var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);
+            privateChannel.bind(ROOM_CREATED, function(data) {
                 // Refresh div
                 $('#gameList').load('/deuces/ #gameList');
             });
@@ -61,7 +64,7 @@
                 success: function(data) {
                   console.log("asdsadsaf");
                   window.location = "deuces/"+data["id"];
-            pusher.unsubscribe(PUBLIC_CHANNEL);
+            pusher.unsubscribe(PRIVATE_CHANNEL);
                     // Subscribe to pusher channel
                     var channel = pusher.subscribe(ROOM_CHANNEL+data["id"]);
                     channel.bind(PLAYER_JOINED, function(eventData) {
@@ -77,8 +80,8 @@
                 url: '/deuces/join/'+id,
                 type: 'POST',
                 success: function(data) {
-                  window.location = "http://localhost:3000/deuces/"+id;
-            pusher.unsubscribe(PUBLIC_CHANNEL);
+                  window.location = "/deuces/"+id;
+            pusher.unsubscribe(PRIVATE_CHANNEL);
                     // Subscribe to pusher channel
                     var channel = pusher.subscribe(ROOM_CHANNEL+id);
                     channel.bind(PLAYER_JOINED, function(eventData) {
@@ -91,9 +94,7 @@
        </script>
 
 </head>
-
 <body>
-
     <!-- Image Background Page Header -->
     <!-- Note: The background image is set within the business-casual.css file. -->
     <header class="business-header" style="padding-top: 50px;">
@@ -122,9 +123,7 @@
             </div>
         </div>
         <!-- /.row -->
-
         <hr>
-
         <div id="gameList" class="row">
             <div class="container-fluid">
                 <div class="table-responsive">
@@ -156,18 +155,6 @@
         <hr>
 
     </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <%= stylesheet_link_tag "conversations"%>
-<%= javascript_include_tag('conversation.js') %>
-
-
-
 
 </body>
 

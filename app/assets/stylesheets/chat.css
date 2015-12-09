@@ -96,7 +96,9 @@
 .chatbox {
     position: fixed;
     position: expression("absolute");
-    width: 280px;
+    margin-top: auto;
+    margin-left: auto;
+    width: 350px;
     display: none;
 }
 

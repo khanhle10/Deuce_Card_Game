@@ -1,7 +1,7 @@
 class DeucesController < ApplicationController
   @@PLAYER_JOINED = "playerJoined"
   @@ROOM_CREATED = "roomCreated"
-  @@PUBLIC_CHANNEL = 'publicChannel'
+  @@PRIVATE_CHANNEL = 'privateChannel'
   before_action :set_deuce, only: [:show, :edit, :update, :destroy]
 
   # GET /deuces
@@ -63,7 +63,7 @@ class DeucesController < ApplicationController
 
     @deuce.save
 
-    Pusher.trigger(@@PUBLIC_CHANNEL, @@ROOM_CREATED, {})
+    Pusher.trigger(@@PRIVATE_CHANNEL, @@ROOM_CREATED, {})
 
     redirect_to @deuce
   end
