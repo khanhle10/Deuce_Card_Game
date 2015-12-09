@@ -2,11 +2,9 @@ class MessagesController < ApplicationController
 
     @@PUBLIC_CHANNEL = 'publicChannel';
     @@MESSAGE_RECEIVED = 'messageReceived';
-
     before_filter :authenticate_user!
 
     def send_message
-      puts "You all suck @@@@@@@@@@@@@@"
       # Find out the user's name
       user = User.find(params[:senderId])
       user_name = user[:name]
