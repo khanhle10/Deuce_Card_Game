@@ -6,40 +6,32 @@
 <div class="content-box">
   <center>
   <div class="players">
-    <div class="player-center-top" style="margin: 10px;">
+    <div class="player-center-top" style="margin: 10px; height: 150px; width 150px;">
     <% user = User.find(@deuce[:player1]) %>
-     <div class="col-md-2">
        <center><h2><%= user[:name] %></h2></center>
-       <img src="/assets/special.jpg" class="img-circle img-responsive img-center" />
-     </div>
+       <img src="/assets/special.jpg" class="img-circle img-responsive img-center" style="width: 100px; height:100px;"/>
     </div>
 
     <div class="player-left" style="margin: 10px;">
     <% if ! @deuce[:player2].nil? %>
-    <div class="col-md-2">
       <% user = User.find(@deuce[:player2]) %>
-      <img src="/assets/playerface.png" class="img-rounded player-image" />
-      <span><%= user[:name] %></span>
-    </div>
+      <center><h2><%= user[:name] %></h2></center>
+      <img src="/assets/creep.png" class="img-circle img-responsive img-center" style="width: 100px; height:100px;" />
     <% end %>
     </div>
 
     <div class="player-right" style="margin: 10px;">
     <% if ! @deuce[:player3].nil? %>
-    <div class="col-md-2">
       <% user = User.find(@deuce[:player3]) %>
-      <img src="/assets/playerface.png" class="img-rounded player-image" />
-      <span><%= user[:name] %></span>
-    </div>
+      <center><h2><%= user[:name] %></h2></center>
+      <img src="/assets/joy.jpeg" class="img-circle img-responsive img-center" style="width: 100px; height:100px;" />
     <% end %>
     </div>
-    <div class="player-center-bottom" style="margin: 10px;">
+    <div class="player-center-bottom col-md-2" style="margin: 10px;">
     <% if ! @deuce[:player4].nil? %>
-    <div class="col-md-2">
       <% user = User.find(@deuce[:player4]) %>
-      <img src="/assets/playerface.png" class="img-rounded player-image" />
-      <span><%= user[:name] %></span>
-    </div>
+      <img src="/assets/troll.png" class="img-circle img-responsive img-center" style="width: 100px; height:100px;" />
+      <center><h2><%= user[:name] %></h2></center>
     <% end %>
   </div>
   </div>

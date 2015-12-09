@@ -6,33 +6,35 @@ player-image {
   height: 50px;
 }
 .players player-left {
-   float:left; width: 50px; height: 50px;
+   float:left; width: 200px; height: 200px;
    position: fixed;
-   padding-right: 80%;
+   right: 80%;
    left: 10%;
    border: 2px solid blue;
    z-index: 1;
 }
 .players player-right {
-  float: right; width: 50px; height: 50px;
-  position: fixed;
+  float: right; width: 150px; height: 150px;
+  padding-top: 300px;
   right: 10%;
   border: 2px solid blue;
   z-index: 1;
 }
 .players player-center-top {
-   float:center; width: 50px; height: 50px;
+   width: 20%;
+   height: 20%;
    margin: 10px;
-   position: fixed;
+   padding-top: 200px;
    top: 0;
    left: 50px;
    border: 2px solid blue;
    z-index: 1;
 }
 .players player-center-bottom {
-   float:center; width: 50px; height: 50px;
+   float:center; width: 150px; height: 150px;
    margin: 10px;
    position: fixed;
+   padding-top: 70%;
    bottom: 0;
    border: 2px solid blue;
    z-index: 1;
@@ -46,6 +48,8 @@ player-image {
   width:750px;
   height:750px;
   padding-bottom: 15px;
+  border: 2px solid blue;
+  z-index: 1;
 }
 .body {
   width: 1200px;
