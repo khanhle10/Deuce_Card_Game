@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :conversations, only: [:create]
-    root 'welcome#index'
+  root 'deuces#index'
+  get 'signup' => 'devise/registrations#new'
+  post 'signup' => 'devise/registrations#create'
   as :user do
     get 'deuces/index' => 'deuces#index'
     get 'signin' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
-    get 'signup' => 'devise/registrations#new'
-    post 'signup' => 'devise/registrations#create'
     get 'joingame' => 'conversations#index'
     post 'deuces/join/:id' => 'deuces#join'
     post 'conversations' => 'conversations#create'
