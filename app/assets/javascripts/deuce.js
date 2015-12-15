@@ -1,6 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://coffeescript.org/
 var ROOM_CHANNEL = "deuce_";
 var PLAYER_JOINED = "playerJoined";
 var ROOM_CREATED = "roomCreated";
@@ -11,7 +8,7 @@ $(document).ready(function() {
 
     pusher = new Pusher("f186c8947d4b1acc8fdf");
 
-    // Subscribe this user to the public channel
+    // Subscribe this user to the private channel
     var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);
     privateChannel.bind(ROOM_CREATED, function(data) {
         // Refresh div

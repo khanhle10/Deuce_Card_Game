@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     get 'deuces/index' => 'deuces#index'
     get 'signin' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
-    get 'joingame' => 'conversations#index'
     post 'deuces/join/:id' => 'deuces#join'
     post 'conversations' => 'conversations#create'
     post '/messages/sendMessage' => 'messages#send_message'
