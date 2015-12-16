@@ -39,7 +39,7 @@
         var ROOM_CREATED = "roomCreated";
         var pusher
         $(document).ready(function() {
-            pusher = new Pusher("f186c8947d4b1acc8fdf");
+            pusher = new Pusher("Pusher.key");
             // Subscribe this user to the channel to chat
             var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);
             privateChannel.bind(ROOM_CREATED, function(data) {
