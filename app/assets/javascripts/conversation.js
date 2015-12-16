@@ -9,7 +9,7 @@ var pusher;
 
 $(document).ready(function() {
 
-    pusher = new Pusher("f186c8947d4b1acc8fdf");
+    pusher = new Pusher("PUSHER_KEY_M");
 
     // Subscribe this user to the public channel
     var publicChannel = pusher.subscribe(PUBLIC_CHANNEL);
