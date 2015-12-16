@@ -39,7 +39,11 @@
         var ROOM_CREATED = "roomCreated";
         var pusher
         $(document).ready(function() {
+<<<<<<< HEAD
             pusher = new Pusher("a6c97e689cf9fd217899");
+=======
+            pusher = new Pusher('a6c97e689cf9fd217899');
+>>>>>>> e648e0d3237e39fd204148d59d0c5b6bca21538e
             // Subscribe this user to the channel to chat
             var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);
             privateChannel.bind(ROOM_CREATED, function(data) {
@@ -62,7 +66,6 @@
                     }
                 ),
                 success: function(data) {
-                  console.log("asdsadsaf");
                   window.location = "deuces/"+data["id"];
             pusher.unsubscribe(PRIVATE_CHANNEL);
                     // Subscribe to pusher channel
@@ -101,7 +104,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12" style="margin: 10px; align-items: center;">
-                    <h1 class="tagline" style="align-text: center;">Welcome to an online card game called Deuces</h1>
+                  <center><h1 class="tagline" style="align-text: center;">Welcome to an online card game called Deuces</h1></center>
                 </div>
             </div>
         </div>
