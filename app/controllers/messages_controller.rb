@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 
-    @@PUBLIC_CHANNEL = 'publicChannel';
+    @@PRIVATE_CHANNEL = 'privateChannel';
     @@MESSAGE_RECEIVED = 'messageReceived';
     before_filter :authenticate_user!
 
@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
         }
 
       # Trigger the Pusher
-      Pusher.trigger(@@PUBLIC_CHANNEL, @@MESSAGE_RECEIVED, message)
+      Pusher.trigger(@@PRIVATE_CHANNEL, @@MESSAGE_RECEIVED, message)
 
       render nothing: true
     end

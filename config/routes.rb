@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :deuces
-  resources :lobbies
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -13,7 +12,6 @@ Rails.application.routes.draw do
     get 'deuces/index' => 'deuces#index'
     get 'signin' => 'devise/sessions#new'
     post 'signin' => 'devise/sessions#create'
-    get 'joingame' => 'conversations#index'
     post 'deuces/join/:id' => 'deuces#join'
     post 'conversations' => 'conversations#create'
     post '/messages/sendMessage' => 'messages#send_message'

@@ -6,9 +6,9 @@ var pusher
 
 $(document).ready(function() {
 
-    pusher = new Pusher("f186c8947d4b1acc8fdf");
+    pusher = new Pusher("a6c97e689cf9fd217899");
 
-    // Subscribe this user to the public channel
+    // Subscribe this user to the private channel
     var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);
     privateChannel.bind(ROOM_CREATED, function(data) {
         // Refresh div
