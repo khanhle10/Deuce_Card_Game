@@ -2,7 +2,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create
 
 function preload() {
 
-	//load environment
+	//load environment 
 	game.load.image('background', 'background.png');
 	game.load.image('playbtn', 'images/playbutton.png');
 	game.load.image('passbtn', 'images/passbutton.png');
@@ -88,6 +88,8 @@ var Player4 = new player(4, Hand4);
 console.log(Player1.hand[4]);
 
 var curPlayer = 1;
+var curPlayerText;
+var card;
 
 function create() {
 
@@ -103,18 +105,22 @@ function create() {
 	PlayBtn.scale.setTo(0.5, 0.5);
 
 	//pass button
-	PassBtn = game.add.button (30, 550, 'passbtn', pass, this, 2, 1, 0);
+	PassBtn = game.add.button (30, 550, 'passbtn', pass, this, 2, 1, 0); 
 	PassBtn.name = 'passbtn';
 	PassBtn.scale.setTo(0.5, 0.5);
 
 
 	//Texts
-	var CurPlayerText = game.add.text(30, 20, "Current Player: " + curPlayer, {font: "22px Arial", fill: "#ffffff"});
+	curPlayerText = game.add.text(30, 20, "Current Player: " + curPlayer, {font: "22px Arial", fill: "#ffffff"});
 
 	for(i = 0; i < 13; i++) {
-		var card = game.add.sprite(180 + i * 25,410, 'card' + Player1.hand[i].value);
+		card = game.add.sprite(180 + i * 25,410, 'card' + Player1.hand[i].value);
+		card.events.onInputDown.add(choose, this);
+		card.inputEnabled = true;
 		card.scale.setTo(0.5, 0.5);
 	}
+
+	console.log(card.key);
 
 }
 
@@ -122,16 +128,37 @@ function update() {
 
 }
 
-function play(button) {
+//This function is called when a card is clicked
+function choose() {
+	
+	console.log("choose: y = " + card.y);
 
+
+	if (card.y === 410) {
+		card.y -= 20;
+	} else if(card.y === 390) {
+		card.y += 20;
+	}
 }
 
-function pass(button) {
+
+
+//This function is called when the PLAY button is called
+function play(button) {
+	console.log("play");
 	nextPlayer();
 }
 
+//this function is called when the PASS button is called
+function pass(button) {
+	console.log("pass");
+	nextPlayer();
+}
+
+//set the nextplayer
 function nextPlayer() {
-	curPlayer = (curPlayer + 1) % 4;
+	curPlayer = curPlayer % 4 + 1;
+	curPlayerText.text = "Current Player: " + curPlayer;
 }
 
 //======================== DECK DATA ========================//
@@ -143,7 +170,7 @@ function card(value, num, suit) {
 	this.suit = suit;
 }
 
-//Create Deck project
+//Create Deck object using card object
 function deck() {
 	this.num = ['3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', '1', '2'];
 	this.suits = ['Diamonds','Clubs','Hearts','Spades'];
@@ -163,6 +190,7 @@ function deck() {
 
 //======================== DECK Maipulators ========================//
 
+//shuffle the deck
 function shuffle(deck) {
   var currentIndex = deck.length, temporaryValue, randomIndex ;
 
@@ -182,8 +210,9 @@ function shuffle(deck) {
   return deck;
 }
 
+//give all player 13 cards
 function deal(deck) {
-
+	
 	var index = 0;
 
 	for(var i = 0; i < 13; i++) {
