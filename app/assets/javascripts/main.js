@@ -85,8 +85,6 @@ var Player2 = new player(2, Hand2);
 var Player3 = new player(3, Hand3);
 var Player4 = new player(4, Hand4);
 
-console.log(Player1.hand[4]);
-
 var curPlayer = 1;
 var curPlayerText;
 var card;
@@ -95,8 +93,11 @@ function create() {
 
 	//ad background to screen
 	game.add.sprite(0,0, 'background');
+	console.log("background set!");
+
 	var dashboard = game.add.sprite(0, 530, 'dashboard');
 	dashboard.scale.setTo(0.4, 0.25);
+	console.log("dashboard set!");
 
 
 	//play button
@@ -120,7 +121,7 @@ function create() {
 		card.scale.setTo(0.5, 0.5);
 	}
 
-	console.log(card.key);
+	
 
 }
 
@@ -132,7 +133,7 @@ function update() {
 function choose() {
 	
 	console.log("choose: y = " + card.y);
-
+	console.log("choose: key: " + card.key);
 
 	if (card.y === 410) {
 		card.y -= 20;
@@ -184,6 +185,7 @@ function deck() {
 		}
 	}
 
+	console.log("Deck created");
 	return cards;
 }
 //======================== DECK DATA ========================//
