@@ -9,14 +9,15 @@
     <div class="player-center-top" style="margin: 10px; height: 150px; width 150px;">
     <% user = User.find(@deuce[:player1]) %>
        <center><h2><%= user[:name] %></h2></center>
-       <img src="/assets/special.jpg" class="img-circle img-responsive img-center" style="width: 100px; height:100px;"/>
+       <%= image_tag("special.jpg", size: "100x100" class:"img-circle img-response img-center") %>
     </div>
 
     <div class="player-left" style="margin: 10px;">
     <% if ! @deuce[:player2].nil? %>
       <% user = User.find(@deuce[:player2]) %>
       <center><h2><%= user[:name] %></h2></center>
-      <img src="/assets/creep.png" class="img-circle img-responsive img-center" style="width: 100px; height:100px;" />
+      <%= image_tag("creep.png", size: "100x100" class:"img-circle img-response img-center") %>
+
     <% end %>
     </div>
 
@@ -24,14 +25,14 @@
     <% if ! @deuce[:player3].nil? %>
       <% user = User.find(@deuce[:player3]) %>
       <center><h2><%= user[:name] %></h2></center>
-      <img src="/assets/joy.jpeg" class="img-circle img-responsive img-center" style="width: 100px; height:100px;" />
+      <%= image_tag("joy.jpeg", size: "100x100" class:"img-circle img-response img-center") %>
     <% end %>
     </div>
     <div class="player-center-bottom col-md-2" style="margin: 10px;">
     <% if ! @deuce[:player4].nil? %>
       <% user = User.find(@deuce[:player4]) %>
-      <img src="/assets/troll.png" class="img-circle img-responsive img-center" style="width: 100px; height:100px;" />
       <center><h2><%= user[:name] %></h2></center>
+      <%= image_tag("troll.jpg", size: "100x100" class:"img-circle img-response img-center") %>
     <% end %>
   </div>
   </div>
