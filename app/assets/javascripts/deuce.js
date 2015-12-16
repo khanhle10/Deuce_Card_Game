@@ -6,7 +6,7 @@ var pusher
 
 $(document).ready(function() {
 
-    pusher = new Pusher("PUSHER_KEY_M");
+    pusher = new Pusher('Pusher.key');
 
     // Subscribe this user to the private channel
     var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);

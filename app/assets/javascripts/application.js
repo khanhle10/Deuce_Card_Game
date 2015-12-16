@@ -16,3 +16,4 @@
 //= require_tree .
 //= require chat
 //= require deuce
+//= require main

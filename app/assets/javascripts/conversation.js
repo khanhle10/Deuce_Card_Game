@@ -1,4 +1,4 @@
-var PUBLIC_CHANNEL = 'publicChannel';
+var PRIVATE_CHANNEL = 'privateChannel';
 var MESSAGE_RECEIVED = 'messageReceived';
 var SEND_MESSAGE_ENDPOINT = '/messages/sendMessage';
 var CHATBOX_WINDOW = '#chatbox';
@@ -9,11 +9,11 @@ var pusher;
 
 $(document).ready(function() {
 
-    pusher = new Pusher("PUSHER_KEY_M");
+    pusher = new Pusher('Pusher.key');
 
-    // Subscribe this user to the public channel
-    var publicChannel = pusher.subscribe(PUBLIC_CHANNEL);
-    publicChannel.bind(MESSAGE_RECEIVED, function(data) {
+    // Subscribe this user to the private channel
+    var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);
+    privateChannel.bind(MESSAGE_RECEIVED, function(data) {
         console.log(data);
         var senderId = data["sender_id"];
         var senderName = data["sender_name"];
