@@ -1,6 +1,3 @@
 require 'pusher'
-
-Pusher.app_id = ENV["PUSHER_APP_ID"]
-Pusher.key    = ENV["PUSHER_KEY_M"]
-Pusher.secret = ENV["PUSHER_SECRET_KEY"]
+Pusher.url = ENV['PUSHER_URL']
 Pusher.logger = Rails.logger

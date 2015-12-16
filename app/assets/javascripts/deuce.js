@@ -6,7 +6,7 @@ var pusher
 
 $(document).ready(function() {
 
-    pusher = new Pusher('Pusher.key');
+    pusher = new Pusher('<%= Pusher.key %>');
 
     // Subscribe this user to the private channel
     var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);
@@ -55,4 +55,6 @@ function joinGame(id) {
             });
         }
     });
+}
+function start_game(){
 }
