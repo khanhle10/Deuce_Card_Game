@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20151209074615) do
 
   create_table "lobbies", force: :cascade do |t|
     t.integer  "game_id"
+    t.string   "user_name"
     t.integer  "game_score"
-    t.string   "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,12 +96,6 @@ ActiveRecord::Schema.define(version: 20151209074615) do
     t.integer  "total_score", default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-  end
-
-  create_table "test_names", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
