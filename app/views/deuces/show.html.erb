@@ -9,14 +9,22 @@
     <div class="player-center-top" style="margin: 10px; height: 150px; width 150px;">
     <% user = User.find(@deuce[:player1]) %>
        <center><h2><%= user[:name] %></h2></center>
+<<<<<<< HEAD
        <%= image_tag("special.jpg", class: "img-circle img-responsive img-center", size: "100x100") %>
+=======
+       <%= image_tag("special.jpg", size: "100x100", class: "img-circle img-response img-center") %>
+>>>>>>> 0fc5f74fa5be97116b5c04e367643338aa84379c
     </div>
 
     <div class="player-left" style="margin: 10px;">
     <% if ! @deuce[:player2].nil? %>
       <% user = User.find(@deuce[:player2]) %>
       <center><h2><%= user[:name] %></h2></center>
+<<<<<<< HEAD
       <%= image_tag("creep.png", class: "img-circle img-responsive img-center", size: "100x100") %>
+=======
+      <%= image_tag("creep.png", size: "100x100", class: "img-circle img-response img-center") %>
+>>>>>>> 0fc5f74fa5be97116b5c04e367643338aa84379c
     <% end %>
     </div>
 
@@ -24,14 +32,22 @@
     <% if ! @deuce[:player3].nil? %>
       <% user = User.find(@deuce[:player3]) %>
       <center><h2><%= user[:name] %></h2></center>
+<<<<<<< HEAD
       <%= image_tag("joy.jpeg", class: "img-circle img-responsive img-center", size: "100x100") %>
+=======
+      <%= image_tag("joy.jpeg", size: "100x100", class: "img-circle img-response img-center") %>
+>>>>>>> 0fc5f74fa5be97116b5c04e367643338aa84379c
     <% end %>
     </div>
     <div class="player-center-bottom col-md-2" style="margin: 10px;">
     <% if ! @deuce[:player4].nil? %>
       <% user = User.find(@deuce[:player4]) %>
       <center><h2><%= user[:name] %></h2></center>
+<<<<<<< HEAD
       <%= image_tag("troll.png", class: "img-circle img-responsive img-center", size: "100x100") %>
+=======
+      <%= image_tag("troll.png", size: "100x100", class: "img-circle img-response img-center") %>
+>>>>>>> 0fc5f74fa5be97116b5c04e367643338aa84379c
     <% end %>
   </div>
   </div>

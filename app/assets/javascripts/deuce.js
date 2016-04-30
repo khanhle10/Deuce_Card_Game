@@ -6,7 +6,8 @@ var pusher
 
 $(document).ready(function() {
 
-    pusher = new Pusher("a6c97e689cf9fd217899");
+
+    pusher = new Pusher('a6c97e689cf9fd217899');
 
     // Subscribe this user to the private channel
     var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);
@@ -55,4 +56,6 @@ function joinGame(id) {
             });
         }
     });
+}
+function start_game(){
 }

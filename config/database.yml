@@ -88,6 +88,12 @@ test:
 #
 production:
   #<<: *default
+<<<<<<< HEAD
+=======
+  #database: ruby-getting-started_production
+  #username: ruby-getting-started
+  #password: <%= ENV['RUBY-GETTING-STARTED_DATABASE_PASSWORD'] %>
+>>>>>>> 0fc5f74fa5be97116b5c04e367643338aa84379c
   database: devg3frkd73p8m
   username: lonpesnfxfbtwd
   password: <%= ENV['DATABASE_URL'] %>

@@ -9,7 +9,11 @@ var pusher;
 
 $(document).ready(function() {
 
+<<<<<<< HEAD
     pusher = new Pusher("a6c97e689cf9fd217899");
+=======
+    pusher = new Pusher('a6c97e689cf9fd217899');
+>>>>>>> 0fc5f74fa5be97116b5c04e367643338aa84379c
 
     // Subscribe this user to the private channel
     var privateChannel = pusher.subscribe(PRIVATE_CHANNEL);
